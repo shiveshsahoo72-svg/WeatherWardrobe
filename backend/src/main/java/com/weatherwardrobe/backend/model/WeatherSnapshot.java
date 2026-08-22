@@ -1,4 +1,4 @@
-package main.java.com.weatherwardrobe.backend.model;
+package com.weatherwardrobe.backend.model;
 
 import java.time.Instant;
 
@@ -14,5 +14,5 @@ public record WeatherSnapshot(
     String condition,
     String conditionDescription,
     int cloudCover,
-    java.time.Instant timestamp
+    Instant timestamp
 ) {}

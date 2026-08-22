@@ -1,4 +1,4 @@
-package main.java.com.weatherwardrobe.backend.client;
+package com.weatherwardrobe.backend.client;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
