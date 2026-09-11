@@ -15,19 +15,25 @@ class WindBand(str, Enum):
     WINDY = "windy"
     VERY_WINDY = "very_windy"
 
+class HumidityBand(str, Enum):
+    DRY = "dry"
+    COMFORTABLE = "comfortable"
+    HUMID = "humid"
+    VERY_HUMID = "very_humid"
+
 def classify_temperature(temp: float) -> TemperatureBand:
 
     if temp <= 0:
         return TemperatureBand.FREEZING
-    elif 0 < temp <= 10:
+    elif temp <= 10:
         return TemperatureBand.COLD
-    elif 10 < temp <= 18:
+    elif temp <= 18:
         return TemperatureBand.COOL
-    elif 18 < temp <= 27:
+    elif temp <= 27:
         return TemperatureBand.PLEASANT
-    elif 27 < temp <= 31:
+    elif temp <= 31:
         return TemperatureBand.WARM
-    elif 31 < temp <= 34:
+    elif temp <= 34:
         return TemperatureBand.HOT
     else:
         return TemperatureBand.VERY_HOT
@@ -41,3 +47,13 @@ def classify_wind(speed: float) -> WindBand:
         return WindBand.WINDY
     else:
         return WindBand.VERY_WINDY
+
+def classify_humidity(humidity: float) -> HumidityBand:
+    if humidity <= 30:
+        return HumidityBand.DRY
+    elif humidity <= 60:
+        return HumidityBand.COMFORTABLE
+    elif humidity <= 75:
+        return HumidityBand.HUMID
+    else:
+        return HumidityBand.VERY_HUMID
