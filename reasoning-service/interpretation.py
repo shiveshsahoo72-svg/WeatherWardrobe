@@ -9,6 +9,12 @@ class TemperatureBand(str, Enum):
     HOT = "hot"
     VERY_HOT = "very_hot"
 
+class WindBand(str, Enum):
+    CALM = "calm"
+    BREEZY = "breezy"
+    WINDY = "windy"
+    VERY_WINDY = "very_windy"
+
 def classify_temperature(temp: float) -> TemperatureBand:
 
     if temp <= 0:
@@ -25,3 +31,13 @@ def classify_temperature(temp: float) -> TemperatureBand:
         return TemperatureBand.HOT
     else:
         return TemperatureBand.VERY_HOT
+
+def classify_wind(speed: float) -> WindBand:
+    if speed <= 3:
+        return WindBand.CALM
+    elif speed <= 9:
+        return WindBand.BREEZY
+    elif speed <= 13:
+        return WindBand.WINDY
+    else:
+        return WindBand.VERY_WINDY
