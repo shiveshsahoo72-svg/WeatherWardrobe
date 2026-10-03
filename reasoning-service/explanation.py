@@ -1,6 +1,7 @@
 import os
 from groq import Groq
 
+
 client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
 _INSULATION_PHRASES = {
@@ -15,11 +16,11 @@ def explain(requirements, snapshot) -> str:
     try:
         prompt = build_prompt(requirements, snapshot)
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-20b",
             messages=[{"role": "user", "content": prompt}],
         )
         return response.choices[0].message.content
-    except Exception:
+    except Exception as e:
         return build_template_explanation(requirements, snapshot)
 
 def build_prompt(requirements, snapshot) -> str:
