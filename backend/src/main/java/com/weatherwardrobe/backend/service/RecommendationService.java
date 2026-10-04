@@ -3,7 +3,7 @@ package com.weatherwardrobe.backend.service;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
-import com.weatherwardrobe.backend.model.ClothingRequirements;
+import com.weatherwardrobe.backend.model.RecommendationResponse;
 import com.weatherwardrobe.backend.model.WeatherSnapshot;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -19,12 +19,12 @@ public class RecommendationService {
         this.restClient = RestClient.builder().baseUrl(baseURL).build();
     }
 
-    public ClothingRequirements getRecommendation(WeatherSnapshot snapshot){
-        ClothingRequirements recommendation = this.restClient.post()
+    public RecommendationResponse getRecommendation(WeatherSnapshot snapshot){
+        RecommendationResponse recommendation = this.restClient.post()
         .uri("/recommend")
         .body(snapshot)
         .retrieve()
-        .body(ClothingRequirements.class);
+        .body(RecommendationResponse.class);
 
         return recommendation;
     }

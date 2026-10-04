@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.weatherwardrobe.backend.model.ClothingRequirements;
+import com.weatherwardrobe.backend.model.RecommendationResponse;
 import com.weatherwardrobe.backend.model.WeatherSnapshot;
 import com.weatherwardrobe.backend.service.RecommendationService;
 import com.weatherwardrobe.backend.service.WeatherService;
@@ -21,7 +21,7 @@ public class RecommendationController {
     }
 
     @GetMapping("/api/recommendation")
-    public ClothingRequirements getRecommendation(
+    public RecommendationResponse getRecommendation(
         @RequestParam String city, 
         @RequestParam(required = false) String state, 
         @RequestParam String country)
